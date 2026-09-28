@@ -1,0 +1,24 @@
+{
+  "name": "@ledgerflow/service-core",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@fastify/helmet": "^13.0.1",
+    "@ledgerflow/config": "workspace:*",
+    "@ledgerflow/database": "workspace:^",
+    "@ledgerflow/errors": "workspace:*",
+    "@ledgerflow/logger": "workspace:*",
+    "@ledgerflow/observability": "workspace:^",
+    "@nestjs/common": "^11.2.6",
+    "@nestjs/core": "^11.2.6",
+    "@nestjs/platform-fastify": "^11.2.6",
+    "fastify": "^5.12.5",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1"
+  }
+}

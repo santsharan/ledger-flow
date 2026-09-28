@@ -1,0 +1,1 @@
+export const ACQUIRER_ADMIN_TOKEN = Symbol('ACQUIRER_ADMIN_TOKEN');

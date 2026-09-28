@@ -1,0 +1,18 @@
+{
+  "name": "@ledgerflow/auth",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@ledgerflow/errors": "workspace:*",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "fastify": "^5.2.1",
+    "jose": "^5.10.0",
+    "reflect-metadata": "^0.2.2"
+  }
+}

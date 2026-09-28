@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
+
+# Secrets must never be committed (specification §3, §35).
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local infrastructure state
+.infra-data/

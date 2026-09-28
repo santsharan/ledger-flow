@@ -1,0 +1,21 @@
+{
+  "name": "@ledgerflow/database",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@ledgerflow/errors": "workspace:*",
+    "@ledgerflow/logger": "workspace:*",
+    "@ledgerflow/money": "workspace:*",
+    "pg": "^8.13.1"
+  },
+  "devDependencies": {
+    "@testcontainers/postgresql": "^10.16.0",
+    "@types/pg": "^8.11.10",
+    "testcontainers": "^10.16.0"
+  }
+}

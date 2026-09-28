@@ -1,0 +1,17 @@
+{
+  "name": "@ledgerflow/messaging",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@ledgerflow/database": "workspace:*",
+    "@ledgerflow/errors": "workspace:*",
+    "@ledgerflow/events": "workspace:*",
+    "@ledgerflow/logger": "workspace:*",
+    "kafkajs": "^2.2.4"
+  }
+}
