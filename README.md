@@ -15,14 +15,14 @@ demand.
 
 | Problem | Where it is solved |
 | --- | --- |
-| Money must never be a float | `packages/money`, [ADR-016](docs/adr/ADR-016-money-representation.md) |
-| Debits must equal credits, always | [ledger architecture](docs/architecture/ledger-architecture.md), [ADR-002](docs/adr/ADR-002-why-double-entry-ledger.md) |
-| Financial history must be immutable | [ADR-003](docs/adr/ADR-003-immutable-ledger.md) |
-| A provider may succeed while the response is lost | [ADR-005](docs/adr/ADR-005-external-provider-unknown-state.md) |
-| Events must not be lost or published before commit | [ADR-006](docs/adr/ADR-006-transactional-outbox.md) |
-| Duplicate delivery must not duplicate money | [ADR-007](docs/adr/ADR-007-inbox-idempotency.md) |
-| Historical settlements must be reproducible | [ADR-010](docs/adr/ADR-010-settlement-architecture.md) |
-| Discrepancies must be found, not guessed at | [reconciliation architecture](docs/architecture/reconciliation-architecture.md) |
+| Money must never be a float | `packages/money`, [ADR-016](server/docs/adr/ADR-016-money-representation.md) |
+| Debits must equal credits, always | [ledger architecture](server/docs/architecture/ledger-architecture.md), [ADR-002](server/docs/adr/ADR-002-why-double-entry-ledger.md) |
+| Financial history must be immutable | [ADR-003](server/docs/adr/ADR-003-immutable-ledger.md) |
+| A provider may succeed while the response is lost | [ADR-005](server/docs/adr/ADR-005-external-provider-unknown-state.md) |
+| Events must not be lost or published before commit | [ADR-006](server/docs/adr/ADR-006-transactional-outbox.md) |
+| Duplicate delivery must not duplicate money | [ADR-007](server/docs/adr/ADR-007-inbox-idempotency.md) |
+| Historical settlements must be reproducible | [ADR-010](server/docs/adr/ADR-010-settlement-architecture.md) |
+| Discrepancies must be found, not guessed at | [reconciliation architecture](server/docs/architecture/reconciliation-architecture.md) |
 
 ## Repository layout
 
@@ -51,7 +51,7 @@ server/
 | `acquirer-simulator` | 3009 | Deterministic external acquirer with failure modes |
 
 Each service owns its own PostgreSQL logical database and never reads another's — see
-[bounded contexts](docs/architecture/bounded-contexts.md).
+[bounded contexts](server/docs/architecture/bounded-contexts.md).
 
 ### Shared packages
 
@@ -78,7 +78,7 @@ make infra-up      # PostgreSQL, Redis, Kafka, Prometheus, Grafana, Jaeger, Loki
 ```
 
 `make infra-up` waits for health checks and prints every endpoint. See the
-[local environment runbook](docs/runbooks/local-environment.md) for the component list,
+[local environment runbook](server/docs/runbooks/local-environment.md) for the component list,
 database layout and troubleshooting.
 
 Run a single service:
@@ -114,16 +114,16 @@ node scripts/scaffold-service.mjs my-service 3010 "What it owns."
 
 ## Documentation
 
-- [System context](docs/architecture/system-context.md)
-- [Bounded contexts and data ownership](docs/architecture/bounded-contexts.md)
-- [Payment lifecycle](docs/architecture/payment-lifecycle.md)
-- [Ledger architecture](docs/architecture/ledger-architecture.md)
-- [Settlement architecture](docs/architecture/settlement-architecture.md)
-- [Reconciliation architecture](docs/architecture/reconciliation-architecture.md)
-- [Failure model](docs/architecture/failure-model.md)
-- [Azure topology](docs/architecture/azure-topology.md)
-- [Security trust boundaries](docs/security/trust-boundaries.md)
-- [Architecture decision records](docs/adr/README.md)
+- [System context](server/docs/architecture/system-context.md)
+- [Bounded contexts and data ownership](server/docs/architecture/bounded-contexts.md)
+- [Payment lifecycle](server/docs/architecture/payment-lifecycle.md)
+- [Ledger architecture](server/docs/architecture/ledger-architecture.md)
+- [Settlement architecture](server/docs/architecture/settlement-architecture.md)
+- [Reconciliation architecture](server/docs/architecture/reconciliation-architecture.md)
+- [Failure model](server/docs/architecture/failure-model.md)
+- [Azure topology](server/docs/architecture/azure-topology.md)
+- [Security trust boundaries](server/docs/security/trust-boundaries.md)
+- [Architecture decision records](server/docs/adr/README.md)
 
 ## Status
 
@@ -131,6 +131,6 @@ The domain services, local infrastructure, Azure templates, and cluster manifest
 tree. [PRODUCTION_READINESS.md](PRODUCTION_READINESS.md) records what is tested, what is only
 declared, and what has not been run. The project is not production ready.
 
-Failure evidence is indexed in [docs/failure/scenarios.md](docs/failure/scenarios.md). Recovery
-assumptions are in [docs/disaster-recovery/strategy.md](docs/disaster-recovery/strategy.md).
+Failure evidence is indexed in [docs/failure/scenarios.md](server/docs/failure/scenarios.md). Recovery
+assumptions are in [docs/disaster-recovery/strategy.md](server/docs/disaster-recovery/strategy.md).
 Load scripts are in `tests/load` and have no captured baseline yet.
